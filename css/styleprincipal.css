@@ -1,0 +1,14 @@
+section{
+    background: url(../recursos/image/fondoprincipal.svg) center / cover fixed #9b7f7f;
+    width: 90%;
+    height: 60vh;
+    margin: 0 auto;
+}
+nav{
+    background-color: #9b7f7f;
+    margin: 0;
+    height: 40px;
+}
+body{
+    margin: 0;
+}
