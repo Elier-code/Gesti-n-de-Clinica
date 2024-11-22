@@ -1,0 +1,21 @@
+body{
+    text-align: center;
+    background-color: #dddddd4f;
+}
+a{
+    text-decoration: none;
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    width: 200px;
+    margin: 30px;
+}
+.contenedorBotones{
+    display: flex;
+    width: 70%;
+    margin: auto;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}

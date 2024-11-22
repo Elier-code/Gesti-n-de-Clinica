@@ -1,0 +1,34 @@
+body{
+    text-align: center;
+    margin: 0;
+    background-color: #dddddd4f;
+
+}
+.contenedorLogin{
+    background-color: aqua;
+    width: 90vw;
+    height: 90vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background-image: url(../recursos/image/fondologin.svg);
+    background-size: cover;
+    background-position: center;
+    margin-top: 30px;
+}
+.contenedorLogin label, input{
+    width: 30%;
+    height: 25px;
+    margin: auto;
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.loginButton{
+    background-color: #000;
+    width: 25%;
+    margin: auto;
+    color: #fff;
+    font-size: 15px;
+    padding: 9px;
+}
