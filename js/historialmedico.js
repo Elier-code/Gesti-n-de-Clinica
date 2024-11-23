@@ -1,5 +1,5 @@
 class Historial{
-    constructor(){
-        
+    constructor(idHistorial, fechaConsulta, diagnostico, tratamiento, notasMedico,){
+
     }
 }

@@ -30,6 +30,7 @@ body{
     margin: 0;
     background-color: #dddddd4f;
     text-align: center;
+    font-family: "Poppins", sans-serif;
 }
 img{
     height: 90%;
@@ -48,6 +49,7 @@ h1,section>p{
 section>p{
     position: absolute;
     bottom: 90px;
+    width: 45%;
 }
 button{
     background-color: #000;
