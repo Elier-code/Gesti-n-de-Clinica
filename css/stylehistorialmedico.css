@@ -1,0 +1,42 @@
+body {
+    background-color: #dddddd4f;
+}
+
+.DivTitleSHM {
+    text-align: center;
+    align-items: center;
+}
+
+.DivContainerSHMM {
+    display: flex;
+    width: 600px;
+    margin: auto;
+    gap: 50px;
+}
+
+.DivIzqSHM {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    justify-content: left;
+}
+.DivCentroSHM {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    justify-content: right;
+}
+
+.DivDerSHM {
+    text-align: center;
+    width: auto;
+}
+
+button {
+    background-color: green;
+    text-align: center;
+    align-items: center;
+    color: white;
+    width: 200px;
+    height: 40px;
+}

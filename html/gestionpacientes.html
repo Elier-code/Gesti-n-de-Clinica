@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de pacientes</title>
+    <link rel="stylesheet" href="../css/stylegestionpacientes.css">
+</head>
+<body>
+    
+    <div class="divTitleGP">
+
+        <h1>Gestión de Pacientes</h1>
+
+    </div>
+
+    <div class="divContentGP">
+
+        <div class="divIzquierdoGP">
+
+            <label for="idUserGP">Identificación: </label> <br>
+            <input type="text" id="idUserGP" name="idUserGP" required pattern="[A-Za-z0-9]+"> <br><br>
+
+            <label for="nameGP">Nombre Completo: </label> <br>
+            <input type="text" id="nameGP" name="nameGP" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+"> <br><br>
+
+            <label for="fechaNacimientoGP">Fecha de Nacimiento: </label> <br>
+            <input type="date" id="fechaNacimientoGP" name="fechaNacimientoGP" required max="2024-11-25"> <br><br>
+
+            <label for="direccionGP">Dirección: </label> <br>
+            <input type="text" id="direccionGP" name="direccionGP"> <br><br>
+
+            <label for="phoneGP">Teléfono: </label> <br>
+            <input type="number" id="phoneGP" name="phoneGP" required pattern="[0-9]+"> <br><br>
+
+            <label for="emailGP">Correo elctrónico: </label> <br>
+            <input type="email" id="emailGP" name="emailGP" placeholder="ejemplo@dominio.com"> <br><br>
+
+        </div>
+
+        <div class="divDerechoGP">
+
+            <label for="perfilStateGP">Estado del perfil: </label> <br>
+            <select name="perfilStateGP" id="perfilStateGP" required>
+                <option value="">Seleccione una opción</option>
+                <option value="activoGP">Activo</option>
+                <option value="inactivoGP">Inactivo</option>
+            </select> <br><br>
+
+            <label for="nameUserGP">Nombre del Usuario: </label> <br>
+            <input type="text" id="nameUserGP"  name="nameUserGP" required> <br><br>
+
+            <label for="contrasenhaGP">Contraseña: </label> <br>
+            <input type="password" id="contrasenhaGP" name="contrasenhaGP" required> <br><br>
+
+            <button>Guardar</button> <br> <br>
+            <button>Actualizar</button> <br> <br>
+            <button>Eliminar</button> <br> <br>
+            <button>Consultar</button>
+
+        </div>
+
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+body {
+    background-color: #dddddd4f;
+}
+
+.divContentGP {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    margin: 3%;
+}
+
+.divTitleGP {
+    color: black;
+    text-align: center;
+}
+
+.divIzquierdoGP {
+    width: 50%;
+}
+
+.divDerechoGP {
+    width: 50%;
+}
+
+input, select {
+    width: 200px;
+    height: 30px;
+}
+
+button {
+    background-color: green;
+    color: white;
+    text-align: center;
+    align-items: center;
+    width: 200px;
+    height: 35px;
+}

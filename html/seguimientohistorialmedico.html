@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial Clínico</title>
+    <link rel="stylesheet" href="../css/stylehistorialmedico.css">
+</head>
+<body>
+    
+    <div class="DivTitleSHM">
+        <h1>Seguimiento de Historial Médico</h1>
+    </div>
+
+    <div class="DivContainerSHMM">
+
+        <div class="DivIzqSHM">
+            
+            <label for="idEstSHM">Identificación del historial médico: </label> <br>
+            <input type="text" id="idEstSHM" name="idEstSHM" required> <br><br>
+
+            <label for="fechaConsultaSHM">Fecha de consulta: </label> <br>
+            <input type="date" id="fechaConsultaSHM" name="fechaConsultaSHM" required min="2024-11-25"> <br><br>
+
+            <label for="tratamentSHM">Tratamiento: </label> <br>
+            <textarea name="tratamentSHM" id="tratamentSHM" style="height: 40px;"></textarea> <br><br>
+
+        </div>
+
+        <div class="DivCentroSHM">
+
+            <label for="adjuntosSHM">Adjuntos: </label> <br>
+            <input type="file" id="adjuntosSHM" name="adjuntosSHM"> <br><br>
+
+            <label for="diagnosticoSHM">Diagnóstico: </label> <br>
+            <textarea name="diagnosticoSHM" id="diagnosticoSHM" style="height: 40px;"></textarea>
+
+            <label for="notasSHM">Notas adicionales del médico: </label> <br>
+            <textarea name="notasSHM" id="notasSHM" style="height: 40px;"></textarea>
+
+        </div>
+
+    </div>
+
+    <div class="DivDerSHM">
+
+        <button>Consultar</button>
+        <button>Guardar</button>
+        <button>Actualizar</button>
+
+    </div>
+    
+</body>
+</html>
