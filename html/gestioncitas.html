@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de citas y consultas</title>
+    <link rel="stylesheet" href="../css/stylegestioncitas.css">
+</head>
+<body>
+
+        <h1>Gestión de Citas y Consultas</h1>
+
+        <div class="DivContainerGCC">
+
+            <div class="DivLeftGCC">
+
+                <label for="idmedicoGCC">Identificación del Médico: </label>
+                <input type="text" id="idmedicoGCC" name="idmedicoGCC" required> <br><br>
+
+                <label for="especialidadGCC">Especialidad medica: </label>
+                <input type="text" id="especialidadGCC" name="especialidadGCC" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+"> <br><br>
+
+                <label for="fechayhoraGCC">Fecha y hora de la cita: </label>
+                <input type="datetime-local" id="fechayhoraGCC" name="fechayhoraGCC" required> <br><br>
+
+            </div>
+
+            <div class="DivRigthGCC">
+
+                <label for="estadoPerfilGCC">Estado de la cita: </label>
+                <select name="estadoPerfilGCC" id="estadoPerfilGCC">
+                    <option value="">Sleccione una opción</option>
+                    <option value="programada">Programada</option>
+                    <option value="completada">Completada</option>
+                    <option value="cancelada">Cancelada</option>
+                </select> <br><br>
+
+                <label for="motivoConsultaGCC">Motivo de consulta: </label>
+                <textarea name="motivoConsultaGCC" id="motivoConsultaGCC" placeholder="agregue un comentario..."></textarea> <br><br>
+
+            </div>
+
+        </div>
+
+        <div class="DivBotonesGCC">
+
+            <button>Guardar</button>
+            <button>Actualizar</button>
+            <button>Consultar</button>
+            <button>Eliminar</button>
+
+        </div>
+
+</body>
+</html>

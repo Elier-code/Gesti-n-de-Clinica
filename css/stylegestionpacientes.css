@@ -4,22 +4,27 @@ body {
 
 .divContentGP {
     display: flex;
-    width: 90%;
+    width: 600px;
     margin: auto;
-    margin: 3%;
+    margin-top: 50px;
+    gap: 50px;
 }
 
-.divTitleGP {
-    color: black;
+h1 {
     text-align: center;
+    align-items: center;
 }
 
 .divIzquierdoGP {
+    display: flex;
     width: 50%;
+    flex-direction: column;
 }
 
 .divDerechoGP {
+    display: flex;
     width: 50%;
+    flex-direction: column;
 }
 
 input, select {

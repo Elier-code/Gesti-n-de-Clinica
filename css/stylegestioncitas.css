@@ -7,7 +7,7 @@ h1 {
     align-items: center;
 }
 
-.DivContainerEC {
+.DivContainerGCC {
     display: flex;
     width: 600px;
     margin: auto;
@@ -15,17 +15,22 @@ h1 {
     gap: 50px;
 }
 
-.DivLeftEC {
+.DivLeftGCC {
     display: flex;
     width: 50%;
     flex-direction: column;
 
 }
 
-.DivRigthEC {
+.DivRigthGCC {
     display: flex;
     width: 50%;
     flex-direction: column;
+}
+
+.DivBotonesGCC {
+    text-align: center;
+    width: auto;
 }
 
 button {
@@ -37,7 +42,12 @@ button {
     height: 40px;
 }
 
-input, select, textarea {
+input, select {
     width: 200px;
     height: 30px;
+}
+
+textarea {
+    width: 200px;
+    height: 120px;
 }
