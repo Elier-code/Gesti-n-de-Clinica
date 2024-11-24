@@ -1,5 +1,10 @@
+body{
+    background-color: #dddddd4f;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+}
 h1{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 30px;
 }
 
 .divPadre{
@@ -9,15 +14,13 @@ h1{
 }
 
 .divIzquierdo{
-    
+
     width: 50%;
-    padding-left: 300px;
+
 }
 
 .divDerecho{
-
     width: 50%;
-    padding-left: 100px;
 }
 input{
     width: 80%;
@@ -28,16 +31,27 @@ select{
     width: 90%;
     padding: 15px;
 }
-
+label{
+    text-align: left;
+}
 
 button{
-    margin: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     width: 180px;
     padding: 15px;
     background-color:  #33cc33;
     color: whitesmoke;
     border: none;
     border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
+    cursor: pointer;
+    font-size: 16px;
+}
+form{
+    margin: auto;
+    width: 50%;
+    text-align: left;
+}
+.divButton{
+    text-align: center;
 }

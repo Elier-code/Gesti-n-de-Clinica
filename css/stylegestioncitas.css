@@ -1,24 +1,24 @@
 body {
     background-color: #dddddd4f;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
 }
 
-h1 {
-    text-align: center;
-    align-items: center;
-}
 
 .DivContainerGCC {
     display: flex;
     width: 600px;
     margin: auto;
     margin-top: 50px;
-    gap: 50px;
+
+    text-align: left;
 }
 
 .DivLeftGCC {
     display: flex;
     width: 50%;
     flex-direction: column;
+    justify-content: center;
 
 }
 
@@ -30,16 +30,25 @@ h1 {
 
 .DivBotonesGCC {
     text-align: center;
-    width: auto;
+    width: 600px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    padding-right: 90px;
 }
 
 button {
-    background-color: green;
+    background-color:  #33cc33;
     text-align: center;
-    align-items: center;
+
+    flex-direction: row;
     color: white;
     width: 200px;
     height: 40px;
+    border: none;
+
 }
 
 input, select {

@@ -1,23 +1,28 @@
+body{
+    background-color: #dddddd4f;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+}
 h1{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 30px;
 }
 
 .divPadre{
 
     display: flex;
-    width: 1000px;
+    width: 100%;
 }
 
 .divIzquierdo{
-    
+
     width: 50%;
-    padding-left: 300px;
+
 }
 
 .divDerecho{
 
     width: 50%;
-    padding-left: 100px;
+
 }
 input{
     width: 80%;
@@ -30,12 +35,10 @@ select{
 }
 
 .divButton{
-    width: 1000px;
-    grid-column: span 2;
-      display: flex;
-      justify-content: center;
-      margin-top: 50px;
-      margin-left: 190px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
 }
 
 button{
@@ -46,6 +49,11 @@ button{
     color: whitesmoke;
     border: none;
     border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
+    cursor: pointer;
+    font-size: 16px;
+}
+form{
+    width: 60%;
+    margin: auto;
+    text-align: left;
 }

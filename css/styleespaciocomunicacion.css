@@ -1,11 +1,10 @@
 body {
     background-color: #dddddd4f;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
 }
 
-h1 {
-    text-align: center;
-    align-items: center;
-}
+
 
 .DivContainerEC {
     display: flex;
@@ -13,6 +12,7 @@ h1 {
     margin: auto;
     margin-top: 50px;
     gap: 50px;
+    text-align: left;
 }
 
 .DivLeftEC {
@@ -29,12 +29,13 @@ h1 {
 }
 
 button {
-    background-color: green;
+    background-color:  #33cc33;
     text-align: center;
     align-items: center;
     color: white;
     width: 200px;
     height: 40px;
+    border: none;
 }
 
 input, select, textarea {

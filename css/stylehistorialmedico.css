@@ -1,5 +1,6 @@
 body {
     background-color: #dddddd4f;
+    font-family: "Poppins", sans-serif;
 }
 
 h1 {
@@ -43,4 +44,9 @@ button {
 input, select, textarea {
     width: 200px;
     height: 30px;
+    background-color: #fff;
+}
+input[type="file"]{
+    border: 1px solid #000;
+    padding-top: 5%;
 }

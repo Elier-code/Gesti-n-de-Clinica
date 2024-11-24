@@ -2,7 +2,7 @@ body{
     text-align: center;
     margin: 0;
     background-color: #dddddd4f;
-
+    font-family: "Poppins", sans-serif;
 }
 .contenedorLogin{
     background-color: aqua;

@@ -1,5 +1,7 @@
 body {
     background-color: #dddddd4f;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
 }
 
 .divContentGP {
@@ -8,23 +10,22 @@ body {
     margin: auto;
     margin-top: 50px;
     gap: 50px;
+    text-align: left;
 }
 
-h1 {
-    text-align: center;
-    align-items: center;
-}
 
 .divIzquierdoGP {
     display: flex;
     width: 50%;
     flex-direction: column;
+    justify-content: space-around;
 }
 
 .divDerechoGP {
     display: flex;
     width: 50%;
     flex-direction: column;
+    justify-content: space-around;
 }
 
 input, select {
@@ -33,10 +34,12 @@ input, select {
 }
 
 button {
-    background-color: green;
+    background-color: #33cc33;
     color: white;
     text-align: center;
-    align-items: center;
     width: 200px;
     height: 35px;
+    border: none;
+    margin-top: auto;
+    margin-bottom: auto;
 }

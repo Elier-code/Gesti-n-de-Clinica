@@ -3,6 +3,7 @@ body{
     text-align: center;
     background-color: #dddddd4f;
     color: #fff;
+    font-family: "Poppins", sans-serif;
 }
 .contenedor{
     background-color: rgba(42, 123, 181, 0.267);
