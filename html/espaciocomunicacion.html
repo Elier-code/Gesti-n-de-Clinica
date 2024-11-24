@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espacio de comunicación</title>
+</head>
+<body>
+    <div>
+        <h1>Espacio de Comunicación</h1>
+    </div>
+
+    <div>
+
+        <div>
+
+            <label for="idmensajeEC">Identificación del Mensaje: </label> <br>
+            <input type="text" id="idmensajeEC" name="idmensajeEC" required> <br><br>
+
+            <label for="remitenteEC">Remitente: </label> <br>
+            <input type="text" id="remitenteEC" name="remitenteEC" required> <br><br>
+
+            <label for="fechayhoramensajeEC">Fecha y hora del mensaje: </label> <br>
+            <input type="datetime-local" id="fechayhoramensajeEC" name="fechayhoramensajeEC" required> <br><br>
+
+            <label for="contentSMSEC">Contenido del mensaje: </label> <br>
+            <textarea name="contentSMSEC" id="contentSMSEC" style="height: 40px;" required></textarea> <br><br>
+
+        </div>
+
+        <div>
+
+            <label for="destinatarioEC">Destinatario: </label> <br>
+            <input type="text" id="destinatarioEC" name="destinatarioEC" required> <br><br>
+
+            <label for="estadoSMSEC">Estado del mensaje: </label> <br>
+            <select name="estadoSMSEC" id="estadoSMSEC">
+            <option value="">Seleccione una opción</option>
+            <option value="leido">Leído</option>
+            <option value="noleido">No leído</option>
+            </select> <br><br>
+
+            <button>Enviar</button>
+
+        </div>
+    </div>
+
+</body>
+</html>
