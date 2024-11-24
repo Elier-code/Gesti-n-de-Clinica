@@ -2,7 +2,7 @@ body {
     background-color: #dddddd4f;
 }
 
-.DivTitleSHM {
+h1 {
     text-align: center;
     align-items: center;
 }
@@ -11,20 +11,19 @@ body {
     display: flex;
     width: 600px;
     margin: auto;
+    margin-top: 50px;
     gap: 50px;
 }
 
 .DivIzqSHM {
     display: flex;
+    width: 50%;
     flex-direction: column;
-    width: 33%;
-    justify-content: left;
 }
 .DivCentroSHM {
     display: flex;
+    width: 50%;
     flex-direction: column;
-    width: 33%;
-    justify-content: right;
 }
 
 .DivDerSHM {
@@ -39,4 +38,9 @@ button {
     color: white;
     width: 200px;
     height: 40px;
+}
+
+input, select, textarea {
+    width: 200px;
+    height: 30px;
 }
