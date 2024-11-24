@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facturacion y Pago</title>
+  <link rel="stylesheet" href="../css/stylepago.css">
+</head>
+<body>
+  
+  <h1 style="padding-left: 400px; padding-bottom: 50px;">Facturación y Gestión de Pagos</h1>
+  <form action="">
+  <div class="divPadre">
+    
+    <div class="divIzquierdo">
+      
+      <div>
+        <label for="nombre">Nombre</label><br><br>
+        <input type="text" id="nombre" name="nombre" value="Jiara Martins"><p></p>
+      </div>
+
+      <div>
+        <label for="monto">Monto a Pagar</label><br><br>
+        <input type="number" id="monto" name="monto" value="100000"><p></p>
+      </div>
+
+      <div>
+        <label for="fecha_emision">Fecha de Emisión de la Factura</label><br><br>
+        <input type="date" id="fecha_emision" name="fecha_emision" value="2006-05-01"><p></p>
+      </div>
+
+      <div>
+        <label for="concepto">Concepto del Servicio</label><br><br>
+        <input type="text" id="concepto" name="concepto">
+      </div>
+
+    </div>
+
+    <div class="divDerecho">
+      
+      <div>
+        <label for="metodo_pago">Método de Pago</label><br><br>
+        <select id="metodo_pago" name="metodo_pago">
+          <option value="tarjeta" selected>Tarjeta</option>
+          <option value="efectivo">Efectivo</option>
+          <option value="transferencia">Transferencia</option>
+        </select>
+      </div><p></p>
+
+      <div>
+        <label for="estado_pago">Estado de Pago</label><br><br>
+        <select id="estado_pago" name="estado_pago">
+          <option value="pendiente" selected>Pendiente</option>
+          <option value="pagado">Pagado</option>
+        </select>
+      </div><p></p>
+
+      <div>
+        <label for="fecha_vencimiento">Fecha de Vencimiento de la Factura</label><br><br>
+        <input type="date" id="fecha_vencimiento" name="fecha_vencimiento" value="2006-05-30">
+      </div><p></p>
+
+      <div>
+        <label>Descuento</label>
+        
+          <label><input type="radio" name="descuento" value="si" style="width: 15px;"> Sí</label>
+          <label><input type="radio" name="descuento" value="no" checked style="width: 15px;"> No</label><br><br>
+        
+        <input type="number" name="porcentaje-descuento" placeholder="Ingrese porcentaje">
+      </div>
+
+    </div>
+
+  </div><p></p>
+
+  <div class="divButton">
+
+    <button type="button">Guardar</button>
+    <button type="button">Actualizar</button>
+    <button type="button">Eliminar</button>
+    <button type="button">Consultar</button>
+
+  </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Especialidades</title>
+  <link rel="stylesheet" href="../css/styleespecialidades.css">
+</head>
+<body>
+  
+  <h1 style="padding-left: 400px; padding-bottom: 50px;">Gestión de Especialidades</h1>
+  <form action="">
+  <div class="divPadre">
+    
+    <div class="divIzquierdo">
+      
+      <div>
+        <label for="nombre_especialidad">Nombre de la especialidad</label><br><br>
+        <input type="text" id="nombre_especialidad" name="nombre_especialidad"><p></p>
+      </div>
+
+      <div>
+        <label for="estado_perfil">Estado del perfil</label><br><br>
+        <select id="estado_perfil" name="estado_perfil">
+          <option value="activo" selected>Activo</option>
+          <option value="inactivo">Inactivo</option>
+        </select>
+      </div><p></p>
+
+      <div>
+        <label for="descripcion_especialidad">Descripcion de la especialidad</label><br><br>
+        <textarea id="descripcion_especialidad" name="descripcion_especialidad" rows="10" cols="50"></textarea><br><p></p>
+      </div>
+
+    </div>
+
+    <div class="divDerecho">
+      
+      <div class="divButton">
+
+        <button type="button">Guardar</button><p></p>
+        <button type="button">Actualizar</button><p></p>
+        <button type="button">Eliminar</button><p></p>
+        <button type="button">Consultar</button><p></p>
+    
+      </div>
+
+    </div>
+
+  </div><p></p>
+
+  
+</form>
+</body>
+</html>

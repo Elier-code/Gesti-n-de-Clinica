@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Medicos</title>
+  <link rel="stylesheet" href="../css/stylemedico.css">
+</head>
+<body>
+  
+  <h1 style="padding-left: 400px; padding-bottom: 50px;">Gestión de Medicos</h1>
+  <form action="">
+  <div class="divPadre">
+    
+    <div class="divIzquierdo">
+      
+      <div>
+        <label for="nombre_medico">Nombre completo del medico</label><br><br>
+        <input type="text" id="nombre_medico" name="nombre_medico" value="Jiara Martins"><p></p>
+      </div>
+
+      <div>
+        <label for="numero_licencia">Numero de licencia</label><br><br>
+        <input type="text" id="numero_licencia"><p></p>
+      </div>
+
+      <div>
+        <label for="especialidad">Especialidad</label><br><br>
+        <select id="especialidad" name="especialidad">
+          <option value="medico" selected>Medico</option>
+          <option value="cirujano">Cirujano</option>
+          <option value="pediatria">Pediatria</option>
+          <option value="ginecologia">Ginecologia</option>
+        </select>
+      </div><p></p>
+
+      <div>
+        <label for="telefono">Telefono</label><br><br>
+        <input type="text" id="telefono" name="telefono"><p></p>
+      </div>
+
+    </div>
+
+    <div class="divDerecho">
+      
+      <div class="divButton">
+
+        <button type="button">Guardar</button><p></p>
+        <button type="button">Actualizar</button><p></p>
+        <button type="button">Eliminar</button><p></p>
+        <button type="button">Consultar</button><p></p>
+    
+      </div>
+
+    </div>
+
+  </div><p></p>
+
+  
+</form>
+</body>
+</html>

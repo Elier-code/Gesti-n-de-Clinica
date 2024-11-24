@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Usuarios</title>
+  <link rel="stylesheet" href="../css/styleusuario.css">
+</head>
+<body>
+  
+  <h1 style="padding-left: 400px; padding-bottom: 50px;">Gestión de Usuarios</h1>
+  <form action="">
+  <div class="divPadre">
+    
+    <div class="divIzquierdo">
+      
+      <div>
+        <label for="nombre_usuario">Nombre usuario</label><br><br>
+        <input type="text" id="nombre_usuario" name="nombre_usuario" value="Jiara Martins"><p></p>
+      </div>
+
+      <div>
+        <label for="id_usuario">Id usuario</label><br><br>
+        <input type="number" id="id_usuario" name="id_usuario" value="100000"><p></p>
+      </div>
+
+      <div>
+        <label for="fecha_creacion">Fecha de creacion de cuenta</label><br><br>
+        <input type="date" id="fecha_creacion" name="fecha_creacion" value="2006-05-01"><p></p>
+      </div>
+
+      <div>
+        <label for="estado_cuenta">Estado de cuenta</label><br><br>
+        <select id="estado_cuenta" name="estado_cuenta">
+          <option value="activo" selected>Activo</option>
+          <option value="inactivo">Inactivo</option>
+        </select>
+      </div><p></p>
+
+      <div>
+        <label for="telefono">Telefono</label><br><br>
+        <input type="text" id="telefono">
+      </div>
+
+    </div>
+
+    <div class="divDerecho">
+      
+      <div>
+        <label for="rol">Rol de usuario</label><br><br>
+        <select id="rol" name="rol">
+          <option value="tarjeta" selected>unnamed</option>
+          <option value="efectivo">unnamed</option>
+          <option value="transferencia">unnamed</option>
+        </select>
+      </div><p></p>
+
+      <label for="contraseña">Contraseña:</label><br><br>
+      <input type="password" id="contraseña" name="contraseña" placeholder="Ingresa tu contraseña"><p></p>
+
+      <div class="divButton">
+
+        <button type="button">Guardar</button><p></p>
+        <button type="button">Actualizar</button><p></p>
+        <button type="button">Eliminar</button><p></p>
+        <button type="button">Consultar</button><p></p>
+    
+      </div>
+
+    </div>
+
+  </div><p></p>
+
+  
+</form>
+</body>
+</html>
