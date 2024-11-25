@@ -6,10 +6,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gestión de Usuarios</title>
   <link rel="stylesheet" href="../css/styleusuario.css" />
+  <script src="../js/utilidades.js"></script>
+  <script src="../js/usuarios.js"></script>
+  <script src="../js/gestionarusuarios.js"></script>
+  <script src="../js/secuencia.js"></script>
+  <script src="../js/gestionarsecuencia.js"></script>
+
+  <link rel="stylesheet" href="../css/stylemodal.css" />
+
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+
+    <style>
+      table,
+    th,
+    tr,
+    td {
+      border: 1px solid #000;
+    }
+    table{
+      margin-top: 30px;
+
+    }
+    .content{
+      overflow: auto;/*Se genera un scroll si el contenido aumenta mucho  */
+    }
+    </style>
 </head>
 
 <body>
@@ -20,45 +46,41 @@
     <div class="divPadre">
       <div class="divIzquierdo">
         <div>
-          <label for="nombre_usuario">Nombre usuario</label><br /><br />
-          <input type="text" id="nombre_usuario" name="nombre_usuario" value="Jiara Martins" />
+          <label for="idUsuario">Id usuario</label><br /><br />
+          <input type="number" id="idUsuario" name="idUsuario" disabled />
           <p></p>
         </div>
 
         <div>
-          <label for="id_usuario">Id usuario</label><br /><br />
-          <input type="number" id="id_usuario" name="id_usuario" value="100000" />
+          <label for="nombreUsuario">Nombre usuario</label><br /><br />
+          <input type="text" id="nombreUsuario" name="nombreUsuario" value="Jiara Martins" />
           <p></p>
         </div>
 
         <div>
-          <label for="fecha_creacion">Fecha de creacion de cuenta</label><br /><br />
-          <input type="date" id="fecha_creacion" name="fecha_creacion" value="2006-05-01" />
+          <label for="fechaCreacion">Fecha de creacion de cuenta</label><br /><br />
+          <input type="date" id="fechaCreacion" name="fechaCreacion" />
           <p></p>
         </div>
 
         <div>
-          <label for="estado_cuenta">Estado de cuenta</label><br /><br />
-          <select id="estado_cuenta" name="estado_cuenta">
+          <label for="estadoCuenta">Estado de cuenta</label><br /><br />
+          <select id="estadoCuenta" name="estadoCuenta">
             <option value="activo" selected>Activo</option>
             <option value="inactivo">Inactivo</option>
           </select>
         </div>
         <p></p>
-
-        <div>
-          <label for="telefono">Telefono</label><br /><br />
-          <input type="text" id="telefono" />
-        </div>
       </div>
+
 
       <div class="divDerecho">
         <div>
           <label for="rol">Rol de usuario</label><br /><br />
           <select id="rol" name="rol">
-            <option value="tarjeta" selected>unnamed</option>
-            <option value="efectivo">unnamed</option>
-            <option value="transferencia">unnamed</option>
+            <option value="" selected>Selecione una Opcion</option>
+            <option value="paciente">Paciente</option>
+            <option value="medico">Medico</option>
           </select>
         </div>
         <p></p>
@@ -68,19 +90,64 @@
         <p></p>
 
         <div class="divButton">
-          <button type="button">Guardar</button>
+          <button type="button" onclick="guardar()">Guardar</button>
           <p></p>
           <button type="button">Actualizar</button>
           <p></p>
           <button type="button">Eliminar</button>
           <p></p>
-          <button type="button">Consultar</button>
+          <button type="button" id="abrirModal" onclick="listarUsuarios()">Consultar</button>
           <p></p>
         </div>
       </div>
+
     </div>
     <p></p>
   </form>
+
+
+  <div class="modal" id="modal">
+    <div class="content">
+      <span id="cerrarModal">&times;</span>
+      <table id="lista" cellspacing="0">
+        <thead>
+          <tr>
+            <th>ID Usuarios</th>
+            <th>Nombre Usuario</th>
+            <th>Contraseña</th>
+            <th>Rol</th>
+            <th>Estado de la cuenta</th>
+            <th>Fecha Creacion</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="../js/ventanamodal.js"></script>
+
+  <script>
+    document.getElementById("fechaCreacion").value = obtenerFechaActual()
+
+    const listar = document.getElementById("lista")
+    listar.addEventListener('click', (e)=>{
+      recuperarDatosFormulario()
+      var idUsuario = document.getElementById("idUsuario")
+      const fila = e.target.closest('tr')
+      if (!fila || fila.rowIndex === 0) return
+      idUsuario.value = fila.cells[0].textContent
+      nomUser.value = fila.cells[1].textContent
+      passUser.value = fila.cells[2].textContent
+      rol.value = fila.cells[3].textContent
+      estadoCuenta.value = fila.cells[4].textContent
+      fechaCreacion.value = fila.cells[5].textContent
+
+    })
+  </script>
+
 </body>
 
 </html>
