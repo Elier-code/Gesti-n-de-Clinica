@@ -6,12 +6,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Facturacion y Pago</title>
   <link rel="stylesheet" href="../css/stylepago.css">
+  <script src="../js/utilidades.js"></script>
+  <script src="../js/facturasypagos.js"></script>
+  <script src="../js/secuencia.js"></script>
+  <script src="../js/gestionarsecuencia.js"></script><!-- los ids autogenerados -->
+  <script src="../js/gestionarfacturas.js"></script>
+  <!-- Stilos para la ventana modal -->
+  <link rel="stylesheet" href="../css/stylemodal.css" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet" />
+  <style>
+    table,
+    th,
+    tr,
+    td {
+      border: 1px solid #000;
+    }
+    table{
+      margin-top: 30px;
+
+    }
+    .content{
+      overflow: auto;/*Se genera un scroll si el contenido aumenta mucho  */
+    }
+  </style>
 </head>
 
 <body>
@@ -23,26 +45,26 @@
       <div class="divIzquierdo">
 
         <div>
-          <label for="nombre">Nombre</label><br><br>
-          <input type="text" id="nombre" name="nombre" placeholder ="Jiara Martins">
+          <label for="idFactura">ID Factura</label><br><br>
+          <input type="text" id="idFactura" name="idFactura" disabled>
           <p></p>
         </div>
 
         <div>
           <label for="monto">Monto a Pagar</label><br><br>
-          <input type="number" id="monto" name="monto" placeholder="100000">
+          <input type="number" id="monto" name="monto" placeholder="100000" required>
           <p></p>
         </div>
 
         <div>
-          <label for="fecha_emision">Fecha de Emisión de la Factura</label><br><br>
-          <input type="date" id="fecha_emision" name="fecha_emision" >
+          <label for="fechaEmision">Fecha de Emisión de la Factura</label><br><br>
+          <input type="date" id="fechaEmision" name="fechaEmision" disabled>
           <p></p>
         </div>
 
         <div>
           <label for="concepto">Concepto del Servicio</label><br><br>
-          <input type="text" id="concepto" name="concepto">
+          <input type="text" id="concepto" name="concepto" required>
         </div>
 
       </div>
@@ -50,8 +72,8 @@
       <div class="divDerecho">
 
         <div>
-          <label for="metodo_pago">Método de Pago</label><br><br>
-          <select id="metodo_pago" name="metodo_pago">
+          <label for="metodoPago">Método de Pago</label><br><br>
+          <select id="metodoPago" name="metodoPago" required>
             <option value="">Seleccione una opcion</option>
             <option value="tarjeta">Tarjeta</option>
             <option value="efectivo">Efectivo</option>
@@ -61,8 +83,8 @@
         <p></p>
 
         <div>
-          <label for="estado_pago">Estado de Pago</label><br><br>
-          <select id="estado_pago" name="estado_pago">
+          <label for="estadoPago">Estado de Pago</label><br><br>
+          <select id="estadoPago" name="estadoPago" required>
             <option value="">Seleccione una opcion</option>
             <option value="pendiente">Pendiente</option>
             <option value="pagado">Pagado</option>
@@ -71,8 +93,8 @@
         <p></p>
 
         <div>
-          <label for="fecha_vencimiento">Fecha de Vencimiento de la Factura</label><br><br>
-          <input type="date" id="fecha_vencimiento" name="fecha_vencimiento" >
+          <label for="fechaVencimiento">Fecha de Vencimiento de la Factura</label><br><br>
+          <input type="date" id="fechaVencimiento" name="fechaVencimiento" disabled>
         </div>
         <p></p>
 
@@ -80,9 +102,9 @@
           <label>Descuento</label>
 
           <label><input type="radio" name="descuento" value="si" style="width: 15px;"> Sí</label>
-          <label><input type="radio" name="descuento" value="no" checked style="width: 15px;"> No</label><br><br>
+          <label><input type="radio" name="descuento" value="no" style="width: 15px;"> No</label><br><br>
 
-          <input type="number" name="porcentaje-descuento" placeholder="Ingrese porcentaje">
+          <input type="number" id="porcentajeDescuento" name="porcentajeDescuento" placeholder="Ingrese porcentaje">
         </div>
 
       </div>
@@ -92,13 +114,74 @@
 
     <div class="divButton">
 
-      <button type="button">Guardar</button>
-      <button type="button">Actualizar</button>
-      <button type="button">Eliminar</button>
-      <button type="button">Consultar</button>
+      <button onclick="guardar()" type="button">Guardar</button>
+      <button type="button" onclick="actualizar()">Actualizar</button>
+      <button type="button" onclick="eliminar()">Eliminar</button>
+      <button type="button" id="abrirModal" onclick="listarFacturas()">Listar</button>
 
     </div>
   </form>
+  <!-- Div donde se genera la tabla para mostrar los datos -->
+  <div class="modal" id="modal">
+    <div class="content">
+      <span id="cerrarModal">&times;</span>
+      <table id="lista">
+        <thead>
+
+          <tr>
+            <th>ID Factura</th>
+            <th>Monto </th>
+            <th>Fecha Emision</th>
+            <th>Metodo de Pago</th>
+            <th>Estado de Pago</th>
+            <th>concepto</th>
+            <th>Descuento</th>
+            <th>Fecha Vencimiento</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+  <script src="../js/ventanamodal.js"></script><!--JS con la funcionalidad de la ventana modal-->
+
+  <script>
+    //se optine la fecha actual y 30 dias despues y se mandadn a los inputs para visualizar
+    document.getElementById("fechaEmision").value = obtenerFechaActual()
+    document.getElementById("fechaVencimiento").value = obtenerFechaMas30Dias()
+    //Los siguinetes comandos son para cuando se da click en una fila los datos de esta se manden a los inputs para modificarlos
+    const listar = document.getElementById("lista")
+    listar.addEventListener('click', (e) => {
+      recuperarDatosFormulario()
+      var cantDes = document.getElementById("porcentajeDescuento")
+      var idFactura = document.getElementById("idFactura")
+      const fila = e.target.closest('tr')
+      if (!fila || fila.rowIndex === 0) return;
+      const id = fila.cells[0].textContent
+      const mont = fila.cells[1].textContent
+      const emision = fila.cells[2].textContent
+      const metodo = fila.cells[3].textContent
+      const estado = fila.cells[4].textContent
+      const concept = fila.cells[5].textContent
+      const descuent = fila.cells[6].textContent
+      const vencimiento = fila.cells[7].textContent
+
+      idFactura.value =  id
+      monto.value = mont
+      fechaEmision.value = emision
+      metodoPago.value = metodo
+      estadoPago.value = estado
+      concepto.value = concept
+      cantDes.value = descuent
+      fechaVencimiento.value = vencimiento
+
+    })
+  </script>
 </body>
 
 </html>
