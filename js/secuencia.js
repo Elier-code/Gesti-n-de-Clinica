@@ -6,4 +6,5 @@ class Secuencia{
     autonumeroUsuario = 0
     autonumeroMensaje = 0
     autonumeroEspecialidades = 0
+    autonumeroPaciente = 0
 }

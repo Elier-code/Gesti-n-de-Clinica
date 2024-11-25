@@ -92,3 +92,16 @@ function getValorSecuenciaMensaje(){
     setJSONDeLocalStore(nombreLocalStore, secuencias)
     return secuencias[0].autonumeroMensaje
 }
+
+function getValorSecuenciaPaciente(){
+    secuencias = getJSONDeLocalStore(nombreLocalStore)
+    if (secuencias.length == 0) {
+        secuencia = new Secuencia
+        secuencias.push(secuencia)
+
+    }
+    secuencias[0].autonumeroPaciente += 1
+
+    setJSONDeLocalStore(nombreLocalStore, secuencias)
+    return secuencias[0].autonumeroPaciente
+}

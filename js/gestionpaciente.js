@@ -1,129 +1,140 @@
-var nombreLocalStore = ""
+var localStore = "pacientes"
 
-function recuperarDatosFormulario() {
 
-    var idUserGP = document.getElementById("idUserGP")
-    var nameGP = document.getElementById("nameGP")
-    var fechaNacimientoGP = document.getElementById("fechaNacimientoGP")
-    var direccionGP = document.getElementById("direccionGP")
-    var phoneGP = document.getElementById("phoneGP")
-    var emailGP = document-getElementById("emailGP")
-}
-
-function limpiarFormulario() {
-
-    idUserGP.value = ''
-    nameGP.value = ''
-    fechaNacimientoGP.value = ''
-    direccionGP.value = ''
-    phoneGP.value = ''
-    emailGP.value = ''
-    idUserGP.focus()
+function recuperarDatosFormulario(){
+    this.nomGP = document.getElementById("nameGP")
+    this.fechaNacimiento = document.getElementById("fechaNacimientoGP")
+    this.direccion = document.getElementById("direccionGP")
+    this.phone = document.getElementById("phoneGP")
+    this.email = document.getElementById("emailGP")
+    this.perfilState = document.getElementById("perfilStateGP")
+    this.nameUser = document.getElementById("nameUserGP")
+    this.contrasenha = document.getElementById("contrasenhaGP")
 
 }
 
-function guardar() {
+function limpiarFormulario(){
+    document.getElementById("nameGP").value = ""
+    document.getElementById("fechaNacimientoGP").value = ""
+    document.getElementById("direccionGP").value = ""
+    document.getElementById("phoneGP").value = ""
+    document.getElementById("emailGP").value = ""
+    document.getElementById("perfilStateGP").value = ""
+    document.getElementById("nameUserGP").value = ""
+    document.getElementById("contrasenhaGP").value = ""
+    document.getElementById("idUserGP").value = ""
 
+}
+
+function guardar(){
     recuperarDatosFormulario()
+    var pacientes = getJSONDeLocalStore(localStore)
+    const paciente = new Pacientes(getValorSecuenciaPaciente(), nomGP.value,
+     fechaNacimiento.value, direccion.value, phone.value, email.value, perfilState.value, nameUser.value, contrasenha.value)
+    
+     pacientes.push(paciente)
 
-    paciente = new Paciente(idUserGP.value, nameGP.value,
-        fechaNacimientoGP.value, direccionGP.value, phoneGP.value, emailGP.value)
-
-    var pacientes = getJSONDeLocalStore(nombreLocalStore)
-
-    pacientes.push(paciente)
-
-    setJSONDeLocalStore(nombreLocalStore, pacientes)
-
+    setJSONDeLocalStore(localStore, pacientes)
     limpiarFormulario()
-
-    alert("Pacientes ha sido guardado correctamente")
-
+    alert("El paciente ha sido guardado correctamente")
 }
 
-function consultar() {
 
-    recuperarDatosFormulario()
+function listarUsuarios(){
+    limpiarTabla()
+    const listar = document.getElementById("lista")
+    const tbody = listar.querySelector('tbody')
+    const pacientes = getJSONDeLocalStore(localStore)
+    for (const i in pacientes) {
+        var fila = document.createElement("tr")
+        var id = document.createElement("td")
+        var nombre = document.createElement("td")
+        var fecha = document.createElement("td")
+        var direccion = document.createElement("td")
+        var celular = document.createElement("td")
+        var correo = document.createElement("td")
+        var perfil = document.createElement("td")
+        var user = document.createElement("td")
+        var contrasena = document.createElement("td")
 
-    this.pacientes = getJSONDeLocalStore(nombreLocalStore)
+        id.textContent = pacientes[i].idUserGP
+        nombre.textContent = pacientes[i].nameGP
+        fecha.textContent = pacientes[i].fechaNacimientoGP
+        direccion.textContent = pacientes[i].direccionGP
+        celular.textContent = pacientes[i].phoneGP
+        correo.textContent = pacientes[i].emailGP
+        perfil.textContent = pacientes[i].perfilStateGP
+        user.textContent = pacientes[i].nameUserGP
+        contrasena.textContent = pacientes[i].contrasenhaGP
 
-    var indicePacientes = buscarIndicePacientes()
 
-    if (indicePacientes > -1) {
+        fila.appendChild(id)
+        fila.appendChild(nombre)
+        fila.appendChild(fecha)
+        fila.appendChild(direccion)
+        fila.appendChild(celular)
+        fila.appendChild(correo)
+        fila.appendChild(perfil)
+        fila.appendChild(user)
+        fila.appendChild(contrasena)
 
-        nameGP.value = pacientes[indicePacientes].nameGP
-        fechaNacimientoGP.value = pacientes[indicePacientes].fechaNacimientoGP
-        direccionGP.value = pacientes[indicePacientes].direccionGP
-        phoneGP.value = pacientes[indicePacientes].phoneGP
-        emailGP.value = pacientes[indicePacientes].emailGP
+        tbody.appendChild(fila)
+    }
+    listar.appendChild(tbody)
+}
+
+
+function limpiarTabla() {
+    const listar = document.getElementById("lista")
+    const tbody = listar.querySelector('tbody')
+    tbody.innerHTML = ''
+}
+
+function actualizar(){
+    this.pacientes = getJSONDeLocalStore(localStore)
+    this.id = document.getElementById("idUserGP").value
+    var indice = buscarIndicePacientes()
+    if (indice > -1) {
+
+        pacientes[i].nameGP = nombre.textContent
+        pacientes[i].fechaNacimientoGP = fecha.textContent
+        pacientes[i].direccionGP = direccion.textContent
+        pacientes[i].phoneGP = celular.textContent
+        pacientes[i].emailGP = correo.textContent
+        pacientes[i].perfilStateGP = perfil.textContent
+        pacientes[i].nameUserGP = user.textContent
+        pacientes[i].contrasenhaGP = contrasena.textContent
 
     }
-
-
-}
-
-function actualizar() {
-
-    recuperarDatosFormulario()
-
-    this.pacientes = getJSONDeLocalStore(nombreLocalStore)
-
-    var indicePacientes = buscarIndicePacientes()
-
-    if (indicePacientes > -1) {
-
-        pacientes[indicePacientes].nameGP = nameGP.value
-        pacientes[indicePacientes].fechaNacimientoGP = fechaNacimientoGP.value
-        pacientes[indicePacientes].direccionGP = direccionGP.value
-        pacientes[indicePacientes].phoneGP = phoneGP.value
-        pacientes[indicePacientes].emailGP = emailGP.value
-    }
-
-
-    setJSONDeLocalStore(nombreLocalStore,pacientes)
-
+    setJSONDeLocalStore(localStore, pacientes)
     limpiarFormulario()
-
-    alert("Pacientes ha sido actualizado correctamente")
-
-
+    alert("El paciente ha sido actualizado correctamente")
 }
+
+function eliminar(){
+    this.pacientes = getJSONDeLocalStore(localStore)
+    this.id = document.getElementById("idUserGP").value
+    var indice = buscarIndicePacientes()
+    if (indice > -1) {
+        alert("El paciente " + pacientes[indice].idUserGP + " eliminado")
+        pacientes.splice(indice, 1)
+        setJSONDeLocalStore(localStore, this.pacientes)
+    }
+    limpiarFormulario()
+}
+
 
 function buscarIndicePacientes() {
 
     var resultado = -1
-
     for (let i = 0; i < pacientes.length; i++) {
 
-        if (pacientes[i].idUserGP == idUserGP.value) {
+        if (pacientes[i].idUserGP == id) {
 
             resultado = i
         }
 
     }
-
     return resultado
-
-}
-
-function eliminar() {
-
-    var estudiantes = getJSONDeLocalStore(nombreLocalStore)
-
-    var indiceEstudiantes = buscarIndiceEstudiantes()
-
-    if (indiceEstudiantes > -1) {
-
-        alert("Estudiante" + estudiantes[indiceEstudiantes].identificacion + " eliminado")
-
-        estudiantes.splice(indiceEstudiantes, 1)
-
-        setJSONDeLocalStore(nombreLocalStore, estudiantes)
-
-
-    }
-
-    limpiarFormulario()
-
 
 }

@@ -9,11 +9,34 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+
+    <script src="../js/utilidades.js"></script>
+    <script src="../js/secuencia.js"></script>
+    <script src="../js/gestionarsecuencia.js"></script><!-- los ids autogenerados -->
+    <script src="../js/citas.js"></script>
+    <script src="../js/gestionarcitas.js"></script>
+
+    <style>
+        table,
+        th,
+        tr,
+        td {
+          border: 1px solid #000;
+        }
+        table{
+          margin-top: 30px;
+    
+        }
+        .content{
+          overflow: auto;/*Se genera un scroll si el contenido aumenta mucho  */
+        }
+      </style>
+      
 </head>
 <body>
 
         <h1>Gestión de Citas y Consultas</h1>
-
+        <form action="">
         <div class="DivContainerGCC">
 
             <div class="DivLeftGCC">
@@ -48,12 +71,55 @@
 
         <div class="DivBotonesGCC">
 
-            <button>Guardar</button>
-            <button>Actualizar</button>
-            <button>Consultar</button>
-            <button>Eliminar</button>
+            <button type="button" onclick="guardar()">Guardar</button>
+            <button type="button" onclick="actualizar()">Actualizar</button>
+            <button type="button" id="abrirModal" onclick="listarCitas()">Listar</button>
+            <button type="button" onclick="eliminar()">Eliminar</button>
 
         </div>
+</form>
+         <!-- Div donde se genera la tabla para mostrar los datos -->
+  <div class="modal" id="modal">
+    <div class="content">
+      <span id="cerrarModal">&times;</span>
+      <table id="lista" cellspacing="0">
+        <thead>
 
+          <tr>
+            <th>Identificación del Médico</th>
+            <th>Especialidad medica </th>
+            <th>Fecha y hora de la cita</th>
+            <th>Estado de la cita</th>
+            <th>Motivo de consulta</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+        <script src="../js/ventanamodal.js"></script><!--JS con la funcionalidad de la ventana modal-->
+
+    
+    <script>
+    //se optine la fecha actual y 30 dias despues y se mandadn a los inputs para visualizar
+
+    const listar = document.getElementById("lista")
+    listar.addEventListener('click', (e)=>{
+      recuperarDatosFormulario()
+      var idUsuario = document.getElementById("idUsuario")
+      const fila = e.target.closest('tr')
+      if (!fila || fila.rowIndex === 0) return
+      idUsuario.value = fila.cells[0].textContent
+      nomUser.value = fila.cells[1].textContent
+      passUser.value = fila.cells[2].textContent
+      rol.value = fila.cells[3].textContent
+      estadoCuenta.value = fila.cells[4].textContent
+      fechaCreacion.value = fila.cells[5].textContent
+
+    })
+  </script>
 </body>
 </html>

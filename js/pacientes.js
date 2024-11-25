@@ -1,15 +1,15 @@
 class Pacientes {
-    constructor (nombre, idPaciente, fechaNacimientoPaciente, direccion, telefono, correo, estadoPerfil, fechaRegistro, usuario, contrasena){
-        this.nombre = nombre
-        this.idPaciente = idPaciente
-        this.fechaNacimientoPaciente = fechaNacimientoPaciente
-        this.direccion = direccion
-        this.telefono = telefono
-        this.correo = correo
-        this.estadoPerfil = estadoPerfil
-        this.fechaRegistro = fechaRegistro
-        this.usuario = usuario
-        this.contrasena = contrasena
+    constructor (idUserGP, nameGP, fechaNacimientoGP, direccionGP, phoneGP, emailGP, perfilStateGP, nameUserGP, contrasenhaGP){
+        this.idUserGP = idUserGP
+        this.nameGP = nameGP
+        this.fechaNacimientoGP = fechaNacimientoGP
+        this.direccionGP = direccionGP
+        this.phoneGP = phoneGP
+        this.emailGP = emailGP
+        this.perfilStateGP = perfilStateGP
+        this.nameUserGP = nameUserGP
+        this.contrasenhaGP = contrasenhaGP
+    
     }
     getUsuario(){
         return this.usuario
