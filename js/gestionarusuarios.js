@@ -15,6 +15,7 @@ function limpiarFormulario(){
     document.getElementById("fechaCreacion").value = ""
     document.getElementById("estadoCuenta").value = ""
     document.getElementById("rol").value = ""
+    document.getElementById("idUsuario").value = ""
 }
 
 function guardar(){
@@ -66,4 +67,51 @@ function limpiarTabla() {
     const listar = document.getElementById("lista")
     const tbody = listar.querySelector('tbody')
     tbody.innerHTML = ''
+}
+
+function actualizar(){
+    this.usuarios = getJSONDeLocalStore(localStore)
+    this.id = document.getElementById("idUsuario").value
+    var indice = buscarIndiceUsuario()
+    if (indice > -1) {
+
+        usuarios[i].nombreUsuario = nombre.textContent
+        usuarios[i].contraseña = contraseña.textContent
+        usuarios[i].fechaCreacion = creacion.textContent
+        usuarios[i].estadoCuenta = estado.textContent
+        usuarios[i].rol = rolUser.textContent
+
+    }
+    setJSONDeLocalStore(localStore, usuarios)
+    limpiarFormulario()
+    alert("El usuario ha sido actualizado correctamente")
+}
+
+function eliminar(){
+    this.usuarios = getJSONDeLocalStore(localStore)
+    this.id = document.getElementById("idUsuario").value
+    var indice = buscarIndiceUsuario()
+    if (indice > -1) {
+        alert("El usuario " + usuarios[indice].idUsuario + " eliminado")
+        usuarios.splice(indice, 1)
+        setJSONDeLocalStore(localStore, usuarios)
+    }
+    limpiarFormulario()
+}
+
+
+
+function buscarIndiceUsuario() {
+
+    var resultado = -1
+    for (let i = 0; i < usuarios.length; i++) {
+
+        if (usuarios[i].idUsuario == id) {
+
+            resultado = i
+        }
+
+    }
+    return resultado
+
 }
