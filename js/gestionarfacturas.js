@@ -43,6 +43,8 @@ function guardar() {
     setJSONDeLocalStore(localStore, facturas)
     limpiarFormulario()
     alert("Factura ha sido guardada correctamente")
+    document.getElementById("fechaEmision").value = obtenerFechaActual()
+    document.getElementById("fechaVencimiento").value = obtenerFechaMas30Dias()
 }
 
 
