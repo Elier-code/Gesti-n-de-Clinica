@@ -6,10 +6,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gestión de Especialidades</title>
   <link rel="stylesheet" href="../css/styleespecialidades.css">
+  <script src="../js/utilidades.js"></script>
+  <script src="../js/secuencia.js"></script>
+  <script src="../js/gestionarsecuencia.js"></script>
+  <script src="../js/especialidades.js"></script>
+  <script src="../js/gestionarespecialidades.js"></script>
 
+  <link rel="stylesheet" href="../css/stylemodal.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+
+    <style>
+      .oculto{
+        display: none
+      }
+      textarea{
+        resize: none;
+      }
+      table,
+      th,
+      tr,
+      td {
+        border: 1px solid #000;
+      }
+      table{
+        margin-top: 30px;
+
+      }
+      .content{
+        overflow: auto;/*Se genera un scroll si el contenido aumenta mucho  */
+      }
+    </style>
 </head>
 
 <body>
@@ -19,25 +47,26 @@
     <div class="divPadre">
 
       <div class="divIzquierdo">
-
+        <input type="text" name="idEspecialidad" id="idEspecialidad" class="oculto">
+        <input type="date" name="fechaCreacion" id="fechaCreacion" class="oculto">
         <div>
-          <label for="nombre_especialidad">Nombre de la especialidad</label><br><br>
-          <input type="text" id="nombre_especialidad" name="nombre_especialidad">
+          <label for="nombreEspecialidad">Nombre de la especialidad</label><br><br>
+          <input type="text" id="nombreEspecialidad" name="nombreEspecialidad">
           <p></p>
         </div>
 
         <div>
-          <label for="estado_perfil">Estado del perfil</label><br><br>
-          <select id="estado_perfil" name="estado_perfil">
-            <option value="activo" selected>Activo</option>
+          <label for="estadoPerfil">Estado de la especialidad</label><br><br>
+          <select id="estadoPerfil" name="estadoPerfil">
+            <option value="activo">Activo</option>
             <option value="inactivo">Inactivo</option>
           </select>
         </div>
         <p></p>
 
         <div>
-          <label for="descripcion_especialidad">Descripcion de la especialidad</label><br><br>
-          <textarea id="descripcion_especialidad" name="descripcion_especialidad" rows="10" cols="50"></textarea><br>
+          <label for="descripcionEspecialidad">Descripcion de la especialidad</label><br><br>
+          <textarea id="descripcionEspecialidad" name="descripcionEspecialidad" rows="10" cols="50"></textarea><br>
           <p></p>
         </div>
 
@@ -47,13 +76,13 @@
 
         <div class="divButton">
 
-          <button type="button">Guardar</button>
+          <button type="button" onclick="guardar()">Guardar</button>
           <p></p>
-          <button type="button">Actualizar</button>
+          <button type="button" onclick="actualizar()">Actualizar</button>
           <p></p>
-          <button type="button">Eliminar</button>
+          <button type="button" onclick="eliminar()">Eliminar</button>
           <p></p>
-          <button type="button">Consultar</button>
+          <button type="button" id="abrirModal" onclick="listarEspecialidades()">Listar</button>
           <p></p>
 
         </div>
@@ -62,9 +91,46 @@
 
     </div>
     <p></p>
-
-
   </form>
+
+  <div class="modal" id="modal">
+    <div class="content">
+      <span id="cerrarModal">&times;</span>
+      <table id="lista" cellspacing="0">
+        <thead>
+          <tr>
+            <th>ID Especialidad</th>
+            <th>Nombre Especialidad</th>
+            <th>Descripcion</th>
+            <th>Estado de la Especialidad</th>
+            <th>Fecha Creacion</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="../js/ventanamodal.js"></script>
+  <script>
+    document.getElementById("fechaCreacion").value = obtenerFechaActual()
+    const listar = document.getElementById("lista")
+    listar.addEventListener('click', (e)=>{
+      recuperarDatosFormulario()
+      var idEsp = document.getElementById("idEspecialidad")
+      const fila = e.target.closest('tr')
+      if (!fila || fila.rowIndex === 0) return
+      idEsp.value = fila.cells[0].textContent
+      nomEsp.value = fila.cells[1].textContent
+      desEsp.value = fila.cells[2].textContent
+      estadoEsp.value = fila.cells[3].textContent
+      fechaCreacion.value = fila.cells[4].textContent
+      
+    })
+  </script>
+
 </body>
 
 </html>

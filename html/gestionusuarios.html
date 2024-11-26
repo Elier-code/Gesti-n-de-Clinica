@@ -64,7 +64,7 @@
         <div>
           <label for="estadoCuenta">Estado de cuenta</label><br /><br />
           <select id="estadoCuenta" name="estadoCuenta">
-            <option value="activo" selected>Activo</option>
+            <option value="activo">Activo</option>
             <option value="inactivo">Inactivo</option>
           </select>
         </div>
@@ -76,7 +76,7 @@
         <div>
           <label for="rol">Rol de usuario</label><br /><br />
           <select id="rol" name="rol">
-            <option value="" selected>Selecione una Opcion</option>
+            <option value="">Selecione una Opcion</option>
             <option value="paciente">Paciente</option>
             <option value="medico">Medico</option>
           </select>
@@ -142,7 +142,6 @@
       rol.value = fila.cells[3].textContent
       estadoCuenta.value = fila.cells[4].textContent
       fechaCreacion.value = fila.cells[5].textContent
-
     })
   </script>
 

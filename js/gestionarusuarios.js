@@ -12,7 +12,7 @@ function recuperarDatosFormulario(){
 function limpiarFormulario(){
     document.getElementById("nombreUsuario").value = ""
     document.getElementById("contraseña").value = ""
-    document.getElementById("fechaCreacion").value = ""
+    
     document.getElementById("estadoCuenta").value = ""
     document.getElementById("rol").value = ""
     document.getElementById("idUsuario").value = ""
@@ -70,16 +70,17 @@ function limpiarTabla() {
 }
 
 function actualizar(){
+    recuperarDatosFormulario()
     this.usuarios = getJSONDeLocalStore(localStore)
     this.id = document.getElementById("idUsuario").value
     var indice = buscarIndiceUsuario()
     if (indice > -1) {
 
-        usuarios[i].nombreUsuario = nombre.textContent
-        usuarios[i].contraseña = contraseña.textContent
-        usuarios[i].fechaCreacion = creacion.textContent
-        usuarios[i].estadoCuenta = estado.textContent
-        usuarios[i].rol = rolUser.textContent
+        usuarios[indice].nombreUsuario = nomUser.value
+        usuarios[indice].contraseña = passUser.value
+        usuarios[indice].fechaCreacion = fechaCreacion.value
+        usuarios[indice].estadoCuenta = estadoCuenta.value
+        usuarios[indice].rol = rol.value
 
     }
     setJSONDeLocalStore(localStore, usuarios)
