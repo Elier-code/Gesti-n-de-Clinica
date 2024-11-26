@@ -71,10 +71,10 @@ function actualizar(){
     var indice = buscarIndiceEspecialidad()
     if (indice > -1) {
 
-        especialidades[indice].nombreUsuario = nomEsp.value
+        especialidades[indice].nombre = nomEsp.value
         especialidades[indice].descripcion = desEsp.value
         especialidades[indice].fechaCreacion = fechaCreacion.value
-        especialidades[indice].estadoCuenta = estadoEsp.value
+        especialidades[indice].esstadoEspecialidad = estadoEsp.value
 
     }
     setJSONDeLocalStore(localStore, especialidades)

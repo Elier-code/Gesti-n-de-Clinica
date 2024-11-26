@@ -77,11 +77,11 @@ function actualizar(){
     var indice = buscarIndiceUsuario()
     if (indice > -1) {
 
-        usuarios[i].nombreUsuario = nombre.textContent
-        usuarios[i].contraseña = contraseña.textContent
-        usuarios[i].fechaCreacion = creacion.textContent
-        usuarios[i].estadoCuenta = estado.textContent
-        usuarios[i].rol = rolUser.textContent
+        usuarios[i].nombreUsuario = nombre.value
+        usuarios[i].contraseña = contraseña.value
+        usuarios[i].fechaCreacion = creacion.value
+        usuarios[i].estadoCuenta = estado.value
+        usuarios[i].rol = rolUser.value
 
     }
     setJSONDeLocalStore(localStore, usuarios)
