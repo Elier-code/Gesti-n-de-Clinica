@@ -71,10 +71,10 @@ function actualizar(){
     var indice = buscarIndiceSeguimiento()
     if (indice > -1) {
 
-        seguimientos[i].fechaConsultaSHM = fecha.textContent
-        seguimientos[i].tratamentSHM = tratamiento.textContent
-        seguimientos[i].diagnosticoSHM = diagnosticos.textContent
-        seguimientos[i].notasSHM = nota.textContent
+        seguimientos[indice].fechaConsultaSHM = fecha.textContent
+        seguimientos[indice].tratamentSHM = tratamiento.textContent
+        seguimientos[indice].diagnosticoSHM = diagnosticos.textContent
+        seguimientos[indice].notasSHM = nota.textContent
     }
     setJSONDeLocalStore(localStore, seguimientos)
     limpiarFormulario()
