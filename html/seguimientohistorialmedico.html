@@ -6,9 +6,33 @@
     <title>Historial Clínico</title>
     <link rel="stylesheet" href="../css/stylehistorialmedico.css">
 
+    <link rel="stylesheet" href="../css/stylemodal.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet" />
+
+      <script src="../js/gestionarseguimiento.js"></script>
+      <script src="../js/seguimiento.js"></script>
+      <script src="../js/utilidades.js"></script>
+      <script src="../js/secuencia.js"></script>
+      <script src="../js/gestionarsecuencia.js"></script>
+
+      <style>
+        table,
+      th,
+      tr,
+      td {
+        border: 1px solid #000;
+      }
+      table{
+        margin-top: 30px;
+  
+      }
+      .content{
+        overflow: auto;/*Se genera un scroll si el contenido aumenta mucho  */
+      }
+      </style>
 </head>
 <body>
 
@@ -20,7 +44,7 @@
         <div class="DivIzqSHM">
 
             <label for="idEstSHM">Identificación del historial médico: </label>
-            <input type="text" id="idEstSHM" name="idEstSHM" required> <br><br>
+            <input type="text" id="idEstSHM" name="idEstSHM" required disabled> <br><br>
 
             <label for="fechaConsultaSHM">Fecha de consulta: </label>
             <input type="date" id="fechaConsultaSHM" name="fechaConsultaSHM" required min="2024-11-25"> <br><br>
@@ -47,11 +71,49 @@
 
     <div class="DivDerSHM">
 
-        <button>Consultar</button>
-        <button>Guardar</button>
-        <button>Actualizar</button>
+        <button type="button" id="abrirModal" onclick="listarSeguimientos()">Listar</button>
+        <button type="button" onclick="guardar()">Guardar</button>
+        <button type="button" onclick="actualizar()">Actualizar</button>
 
     </div>
 
+    <div class="modal" id="modal">
+        <div class="content">
+          <span id="cerrarModal">&times;</span>
+          <table id="lista" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Identificación del historial médico</th>
+                <th>Fecha de consulta</th>
+                <th>Tratamiento</th>
+                <th>Diagnóstico</th>
+                <th>Notas adicionales del médico</th>
+              </tr>
+            </thead>
+            <tbody>
+    
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <script src="../js/ventanamodal.js"></script>
+
+  <script>
+    document.getElementById("fechaCreacion").value = obtenerFechaActual()
+
+    const listar = document.getElementById("lista")
+    listar.addEventListener('click', (e)=>{
+      recuperarDatosFormulario()
+      var idEstSHM = document.getElementById("idEstSHM")
+      const fila = e.target.closest('tr')
+      if (!fila || fila.rowIndex === 0) return
+      idEstSHM.value = fila.cells[0].textContent
+      fechaConsultaSHM.value = fila.cells[1].textContent
+      tratamentSHM.value = fila.cells[2].textContent
+      diagnosticoSHM.value = fila.cells[3].textContent
+      notasSHM.value = fila.cells[4].textContent
+    })
+  </script>
 </body>
 </html>

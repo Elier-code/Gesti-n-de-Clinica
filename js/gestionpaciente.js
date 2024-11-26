@@ -91,20 +91,20 @@ function limpiarTabla() {
 }
 
 function actualizar(){
+    recuperarDatosFormulario()
     this.pacientes = getJSONDeLocalStore(localStore)
     this.id = document.getElementById("idUserGP").value
     var indice = buscarIndicePacientes()
     if (indice > -1) {
 
-        pacientes[i].nameGP = nombre.textContent
-        pacientes[i].fechaNacimientoGP = fecha.textContent
-        pacientes[i].direccionGP = direccion.textContent
-        pacientes[i].phoneGP = celular.textContent
-        pacientes[i].emailGP = correo.textContent
-        pacientes[i].perfilStateGP = perfil.textContent
-        pacientes[i].nameUserGP = user.textContent
-        pacientes[i].contrasenhaGP = contrasena.textContent
-
+        pacientes[indice].nombre = nameGP.value
+        pacientes[indice].fecha = fechaNacimientoGP.value
+        pacientes[indice].direccion = direccionGP.value
+        pacientes[indice].celular = phoneGP.value
+        pacientes[indice].correo = emailGP.value
+        pacientes[indice].perfilStateGP = perfilStateGP.value
+        pacientes[indice].user = nameUserGP.value
+        pacientes[indice].contrasena = contrasenhaGP.value
     }
     setJSONDeLocalStore(localStore, pacientes)
     limpiarFormulario()
@@ -118,7 +118,7 @@ function eliminar(){
     if (indice > -1) {
         alert("El paciente " + pacientes[indice].idUserGP + " eliminado")
         pacientes.splice(indice, 1)
-        setJSONDeLocalStore(localStore, this.pacientes)
+        setJSONDeLocalStore(localStore, pacientes)
     }
     limpiarFormulario()
 }
