@@ -1,5 +1,8 @@
 var localStore = "usuarios"
-
+const admin = new Usuarios(1, "adminUser", "password123", "administrador", "activo", "2024-11-25")
+var usuarios = getJSONDeLocalStore(localStore)
+usuarios.push(admin)
+setJSONDeLocalStore(localStore, usuarios)
 
 function recuperarDatosFormulario(){
     this.nomUser = document.getElementById("nombreUsuario")
