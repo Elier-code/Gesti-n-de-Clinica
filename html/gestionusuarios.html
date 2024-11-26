@@ -51,19 +51,19 @@
 
         <div>
           <label for="nombreUsuario">Nombre usuario</label><br /><br />
-          <input type="text" id="nombreUsuario" name="nombreUsuario" value="Jiara Martins" />
+          <input type="text" id="nombreUsuario" name="nombreUsuario" pattern="Jiara Martins" required/>
           <p></p>
         </div>
 
         <div>
           <label for="fechaCreacion">Fecha de creacion de cuenta</label><br /><br />
-          <input type="date" id="fechaCreacion" name="fechaCreacion" />
+          <input type="date" id="fechaCreacion" name="fechaCreacion" required disabled/>
           <p></p>
         </div>
 
         <div>
           <label for="estadoCuenta">Estado de cuenta</label><br /><br />
-          <select id="estadoCuenta" name="estadoCuenta">
+          <select id="estadoCuenta" name="estadoCuenta" required>
             <option value="activo">Activo</option>
             <option value="inactivo">Inactivo</option>
           </select>
@@ -75,7 +75,7 @@
       <div class="divDerecho">
         <div>
           <label for="rol">Rol de usuario</label><br /><br />
-          <select id="rol" name="rol">
+          <select id="rol" name="rol" required>
             <option value="">Selecione una Opcion</option>
             <option value="paciente">Paciente</option>
             <option value="medico">Medico</option>
@@ -84,7 +84,7 @@
         <p></p>
 
         <label for="contraseña">Contraseña:</label><br /><br />
-        <input type="password" id="contraseña" name="contraseña" placeholder="Ingresa tu contraseña" />
+        <input type="password" id="contraseña" name="contraseña" placeholder="Ingresa tu contraseña" required/>
         <p></p>
 
         <div class="divButton">

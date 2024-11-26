@@ -51,13 +51,13 @@
         <input type="date" name="fechaCreacion" id="fechaCreacion" class="oculto">
         <div>
           <label for="nombreEspecialidad">Nombre de la especialidad</label><br><br>
-          <input type="text" id="nombreEspecialidad" name="nombreEspecialidad">
+          <input type="text" id="nombreEspecialidad" name="nombreEspecialidad" required>
           <p></p>
         </div>
 
         <div>
           <label for="estadoPerfil">Estado de la especialidad</label><br><br>
-          <select id="estadoPerfil" name="estadoPerfil">
+          <select id="estadoPerfil" name="estadoPerfil" required>
             <option value="activo">Activo</option>
             <option value="inactivo">Inactivo</option>
           </select>
@@ -127,7 +127,7 @@
       desEsp.value = fila.cells[2].textContent
       estadoEsp.value = fila.cells[3].textContent
       fechaCreacion.value = fila.cells[4].textContent
-      
+
     })
   </script>
 

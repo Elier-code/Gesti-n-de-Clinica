@@ -22,19 +22,19 @@
 
         <div>
           <label for="nombre_medico">Nombre completo del medico</label><br><br>
-          <input type="text" id="nombre_medico" name="nombre_medico" value="Jiara Martins">
+          <input type="text" id="nombre_medico" name="nombre_medico" pattern="Jiara Martins" required>
           <p></p>
         </div>
 
         <div>
           <label for="numero_licencia">Numero de licencia</label><br><br>
-          <input type="text" id="numero_licencia">
+          <input type="text" id="numero_licencia" required>
           <p></p>
         </div>
 
         <div>
           <label for="especialidad">Especialidad</label><br><br>
-          <select id="especialidad" name="especialidad">
+          <select id="especialidad" name="especialidad" required>
             <option value="medico" selected>Medico</option>
             <option value="cirujano">Cirujano</option>
             <option value="pediatria">Pediatria</option>
