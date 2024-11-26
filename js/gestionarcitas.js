@@ -19,7 +19,7 @@ function limpiarFormulario() {
 
 function guardar() {
     recuperarDatosFormulario()
-    var citas = getJSONDeLocalStore(localStore) 
+    var citas = getJSONDeLocalStore(localStore)
     const cita = new Citas(getValorSecuenciaCita(), especialidadGCC.value, fechayhoraGCC.value, estadoPerfilGCC.value, motivoConsultaGCC.value)
     citas.push(cita)
     setJSONDeLocalStore(localStore, citas)
@@ -99,7 +99,7 @@ function buscarIndiceCita() {
 }
 
 function eliminar(){
-   
+
     this.citas = getJSONDeLocalStore(localStore)
     this.idmedicoGCC = document.getElementById("idmedicoGCC").value
     var indice = buscarIndiceCita()
