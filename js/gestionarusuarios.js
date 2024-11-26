@@ -12,7 +12,7 @@ function recuperarDatosFormulario(){
 function limpiarFormulario(){
     document.getElementById("nombreUsuario").value = ""
     document.getElementById("contraseña").value = ""
-    
+
     document.getElementById("estadoCuenta").value = ""
     document.getElementById("rol").value = ""
     document.getElementById("idUsuario").value = ""
@@ -114,5 +114,52 @@ function buscarIndiceUsuario() {
 
     }
     return resultado
+
+}
+
+
+
+
+function iniciarSesion() {
+
+    var usuario = document.getElementById("users")
+    var password = document.getElementById("password")
+
+    var usuarios = getJSONDeLocalStore(localStore)
+
+    sw = false
+
+    for (const usuarioJSON of usuarios) {
+        console.log(usuarios)
+        if (usuario.value == usuarioJSON.nombreUsuario &&
+            password.value == usuarioJSON.contraseña )  {
+
+            switch(usuarioJSON.rol) {
+
+                case 'paciente':
+
+                    window.location.href = '../html/principalpaciente.html'
+                    break
+
+                case 'administrador':
+
+                    window.location.href = '../html/paginaadmin.html'
+                    break
+                case 'medico':
+                    window.location.href = '../html/principoalmedicos.html'
+                    break
+
+            }
+
+            sw = true
+
+            break
+        }
+
+    }
+
+
+    if (!sw)
+        alert("Usuario y/o password errado")
 
 }

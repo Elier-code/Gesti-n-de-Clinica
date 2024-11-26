@@ -24,7 +24,7 @@ function guardar() {
     citas.push(cita)
     setJSONDeLocalStore(localStore, citas)
     limpiarFormulario()
-    alert("Factura ha sido guardada correctamente")
+    alert("Cita ha sido guardada correctamente")
 }
 
 
@@ -71,15 +71,15 @@ function actualizar() {
     var indice = buscarIndiceFactura()
     if (indice > -1) {
 
-        citas[indice].especialidadGCC = especialidadGCC.textContent
-        citas[indice].fechayhoraGCC = fechayhoraGCC.textContent
-        citas[indice].estadoPerfilGCC = estadoPerfilGCC.textContent
-        citas[indice].motivoConsultaGCC = motivoConsultaGCC.textContent
+        citas[indice].especialidadGCC = especialidadGCC.value
+        citas[indice].fechayhoraGCC = fechayhoraGCC.value
+        citas[indice].estadoPerfilGCC = estadoPerfilGCC.value
+        citas[indice].motivoConsultaGCC = motivoConsultaGCC.value
 
     }
     setJSONDeLocalStore(localStore, citas)
     limpiarFormulario()
-    alert("Factura ha sido actualizada correctamente")
+    alert("Cita ha sido actualizada correctamente")
 
 }
 
@@ -109,4 +109,20 @@ function eliminar(){
         setJSONDeLocalStore(localStore, citas)
     }
     limpiarFormulario()
+}
+
+function mostrarEspecialidades(){
+    const especialidaes = getJSONDeLocalStore("especialidades")
+    const select = document.getElementById("especialidadGCC")
+
+    especialidaes.forEach(especialidad =>{
+        const option = document.createElement("option")
+        option.value = especialidad.nombre
+        option.text = especialidad.nombre
+        select.appendChild(option)
+    })
+}
+
+window.onload = function(){
+    mostrarEspecialidades()
 }
