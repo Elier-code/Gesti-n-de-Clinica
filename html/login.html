@@ -6,6 +6,9 @@
     <title>Iniciar Sesion</title>
     <link rel="stylesheet" href="../css/stylelogin.css">
     <link rel="shortcut icon" href="../recursos/image/icons8-clínica-96.ico" type="image/x-icon">
+    <script src="../js/utilidades.js"></script>
+    <script src="../js/usuarios.js"></script>
+    <script src="../js/gestionarusuarios.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,7 +22,8 @@
         <input type="text" id="users">
         <label for="password"><strong>Contraseña</strong></label>
         <input type="password" id="password">
-        <button class="loginButton">Iniciar Sesión</button>
+        <button class="loginButton" onclick="iniciarSesion()">Iniciar Sesión</button>
     </div>
+
 </body>
 </html>

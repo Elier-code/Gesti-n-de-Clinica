@@ -1,83 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de citas y consultas</title>
-    <link rel="stylesheet" href="../css/stylegestioncitas.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de citas y consultas</title>
+  <link rel="stylesheet" href="../css/stylegestioncitas.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/stylemodal.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
 
-    <script src="../js/utilidades.js"></script>
-    <script src="../js/secuencia.js"></script>
-    <script src="../js/gestionarsecuencia.js"></script><!-- los ids autogenerados -->
-    <script src="../js/citas.js"></script>
-    <script src="../js/gestionarcitas.js"></script>
+  <script src="../js/utilidades.js"></script>
+  <script src="../js/secuencia.js"></script>
+  <script src="../js/gestionarsecuencia.js"></script><!-- los ids autogenerados -->
+  <script src="../js/citas.js"></script>
+  <script src="../js/gestionarcitas.js"></script>
 
-    <style>
-        table,
-        th,
-        tr,
-        td {
-          border: 1px solid #000;
-        }
-        table{
-          margin-top: 30px;
-    
-        }
-        .content{
-          overflow: auto;/*Se genera un scroll si el contenido aumenta mucho  */
-        }
-      </style>
-      
+  <style>
+    table,
+    th,
+    tr,
+    td {
+      border: 1px solid #000;
+    }
+
+    table {
+      margin-top: 30px;
+
+    }
+
+    .content {
+      overflow: auto;
+      /*Se genera un scroll si el contenido aumenta mucho  */
+    }
+  </style>
+
 </head>
+
 <body>
 
-        <h1>Gestión de Citas y Consultas</h1>
-        <form action="">
-        <div class="DivContainerGCC">
+  <h1>Gestión de Citas y Consultas</h1>
+  <form action="">
+    <div class="DivContainerGCC">
 
-            <div class="DivLeftGCC">
+      <div class="DivLeftGCC">
 
-                <label for="idmedicoGCC">Identificación del Médico: </label>
-                <input type="text" id="idmedicoGCC" name="idmedicoGCC" required> <br><br>
+        <label for="idmedicoGCC">Identificación del Médico: </label>
+        <input type="text" id="idmedicoGCC" name="idmedicoGCC" required> <br><br>
 
-                <label for="especialidadGCC">Especialidad medica: </label>
-                <input type="text" id="especialidadGCC" name="especialidadGCC" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+"> <br><br>
+        <label for="especialidadGCC">Especialidad medica: </label>
+        <select id="especialidadGCC" name="especialidadGCC">
 
-                <label for="fechayhoraGCC">Fecha y hora de la cita: </label>
-                <input type="datetime-local" id="fechayhoraGCC" name="fechayhoraGCC" required> <br><br>
+        </select>
+        <br><br>
 
-            </div>
+        <label for="fechayhoraGCC">Fecha y hora de la cita: </label>
+        <input type="datetime-local" id="fechayhoraGCC" name="fechayhoraGCC" required> <br><br>
 
-            <div class="DivRigthGCC">
+      </div>
 
-                <label for="estadoPerfilGCC">Estado de la cita: </label>
-                <select name="estadoPerfilGCC" id="estadoPerfilGCC">
-                    <option value="programada">Programada</option>
-                    <option value="completada">Completada</option>
-                    <option value="cancelada">Cancelada</option>
-                </select> <br><br>
+      <div class="DivRigthGCC">
 
-                <label for="motivoConsultaGCC">Motivo de consulta: </label>
-                <textarea name="motivoConsultaGCC" id="motivoConsultaGCC" placeholder="agregue un comentario..."></textarea> <br><br>
+        <label for="estadoPerfilGCC">Estado de la cita: </label>
+        <select name="estadoPerfilGCC" id="estadoPerfilGCC">
+          <option value="">Sleccione una opción</option>
+          <option value="programada">Programada</option>
+          <option value="completada">Completada</option>
+          <option value="cancelada">Cancelada</option>
+        </select> <br><br>
 
-            </div>
+        <label for="motivoConsultaGCC">Motivo de consulta: </label>
+        <textarea name="motivoConsultaGCC" id="motivoConsultaGCC" placeholder="agregue un comentario..."></textarea>
+        <br><br>
 
-        </div>
+      </div>
 
-        <div class="DivBotonesGCC">
+    </div>
 
-            <button type="button" onclick="guardar()">Guardar</button>
-            <button type="button" onclick="actualizar()">Actualizar</button>
-            <button type="button" id="abrirModal" onclick="listarCitas()">Listar</button>
-            <button type="button" onclick="eliminar()">Eliminar</button>
+    <div class="DivBotonesGCC">
 
-        </div>
-</form>
-         <!-- Div donde se genera la tabla para mostrar los datos -->
+      <button type="button" onclick="guardar()">Guardar</button>
+      <button type="button" onclick="actualizar()">Actualizar</button>
+      <button type="button" id="abrirModal" onclick="listarCitas()">Listar</button>
+      <button type="button" onclick="eliminar()">Eliminar</button>
+
+    </div>
+  </form>
+  <!-- Div donde se genera la tabla para mostrar los datos -->
   <div class="modal" id="modal">
     <div class="content">
       <span id="cerrarModal">&times;</span>
@@ -99,14 +112,11 @@
     </div>
   </div>
 
-        <script src="../js/ventanamodal.js"></script><!--JS con la funcionalidad de la ventana modal-->
-
-    
-    <script>
+  <script src="../js/ventanamodal.js"></script><!--JS con la funcionalidad de la ventana modal-->
+  <script>
     //se optine la fecha actual y 30 dias despues y se mandadn a los inputs para visualizar
-
     const listar = document.getElementById("lista")
-    listar.addEventListener('click', (e)=>{
+    listar.addEventListener('click', (e) => {
       recuperarDatosFormulario()
       var idmedicoGCC = document.getElementById("idmedicoGCC")
       const fila = e.target.closest('tr')
@@ -120,4 +130,5 @@
     })
   </script>
 </body>
+
 </html>
