@@ -56,7 +56,6 @@
 
                 <label for="estadoPerfilGCC">Estado de la cita: </label>
                 <select name="estadoPerfilGCC" id="estadoPerfilGCC">
-                    <option value="">Sleccione una opción</option>
                     <option value="programada">Programada</option>
                     <option value="completada">Completada</option>
                     <option value="cancelada">Cancelada</option>
@@ -109,15 +108,14 @@
     const listar = document.getElementById("lista")
     listar.addEventListener('click', (e)=>{
       recuperarDatosFormulario()
-      var idUsuario = document.getElementById("idUsuario")
+      var idmedicoGCC = document.getElementById("idmedicoGCC")
       const fila = e.target.closest('tr')
       if (!fila || fila.rowIndex === 0) return
-      idUsuario.value = fila.cells[0].textContent
-      nomUser.value = fila.cells[1].textContent
-      passUser.value = fila.cells[2].textContent
-      rol.value = fila.cells[3].textContent
-      estadoCuenta.value = fila.cells[4].textContent
-      fechaCreacion.value = fila.cells[5].textContent
+      idmedicoGCC.value = fila.cells[0].textContent
+      especialidadGCC.value = fila.cells[1].textContent
+      fechayhoraGCC.value = fila.cells[2].textContent
+      estadoPerfilGCC.value = fila.cells[3].textContent
+      motivoConsultaGCC.value = fila.cells[4].textContent
 
     })
   </script>
